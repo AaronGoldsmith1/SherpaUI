@@ -21,6 +21,7 @@
     "fs": "0.0.1-security",
     "fs-extra": "^3.0.1",
     "node-dom": "^0.1.0",
+    "os-homedir": "^1.0.2",
     "react": "^15.3.2",
     "react-desktop": "^0.3.0",
     "react-dom": "^15.3.2",

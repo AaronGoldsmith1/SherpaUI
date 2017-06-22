@@ -21,6 +21,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
+  //fs.rename('./starterReactVR/myjsonfile.json', app.getPath('userData') + '/dataconfig.json')
   exec('npm run data')
   const menu = defaultMenu(app, shell);
 

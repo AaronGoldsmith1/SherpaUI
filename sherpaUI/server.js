@@ -1,10 +1,12 @@
+const express = require('express')
+const app = express();
+const bodyParser = require('body-parser');
+const path = require('path');
+const fs = require('fs-extra');
+const cors = require('cors');
+const osHomedir = require('os-homedir')
 
-var express = require('express')
-var app = express();
-var bodyParser = require('body-parser');
-var path = require('path');
-var fs = require('fs-extra');
-const cors = require('cors')
+
 
 app.use(cors())
 
@@ -17,7 +19,23 @@ app.use(bodyParser.json());
 
 //add images?
 app.get('/data', function(req, res) {
-  res.sendFile(path.join(__dirname, './starterReactVR/myjsonfile.json'))
+  console.log('get')
+  res.sendFile(osHomedir() + '/Library/Application Support/Sherpa-UI/dataconfig.json')
+})
+
+app.post('/data', function(req, res) {
+  console.log(req.body)
+})
+
+
+app.put('/data/update', function(req, res) {
+  fs.readFile(osHomedir() + '/Library/Application Support/Sherpa-UI/dataconfig.json', function(err, data) {
+    console.log(data)
+  })
+
+  console.log('lets update')
+
+  res.json(res)
 })
 
 
