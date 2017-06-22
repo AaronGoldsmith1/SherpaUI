@@ -4,7 +4,7 @@ import Frame from './frame.vr.js';
 import Nav from './nav.vr.js'
 
 
-//const data = require('./myjsonfile.json');
+const data = require('./myjsonfile.json');
 const width = 5;
 const axios = require('axios')
 
@@ -16,7 +16,7 @@ export default class starterReactVR extends Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = data;
     this.state.sceneRotateX = 0;
     this.state.sceneRotateY = 0;
     if (data.currView === 'front')
@@ -63,14 +63,7 @@ export default class starterReactVR extends Component {
       sceneRotateY: updateSceneRotateY
     });
   }
-  componentWillMount() {
 
-    let _this = this
-    axios.get('http://localhost:8080/data').then(function(response) {
-      _this.setState(response.data)
-    })
-
-  }
   componentDidMount() {
     console.log('IN COMPONENTDIDMOUNT');
     console.log('rot', VrHeadModel.rotation());
